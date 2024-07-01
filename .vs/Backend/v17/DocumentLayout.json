@@ -3,24 +3,75 @@
   "WorkspaceRootPath": "D:\\webAPi crud with react\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701105052_FixUserFK.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\Migrations\\20240701105052_FixUserFK.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\migrations\\20240701101836_userblogforeignkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\migrations\\20240701101836_userblogforeignkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Blog.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\adblogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\adblogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701102909_Test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\Migrations\\20240701102909_Test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\addblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\addblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\getblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\getblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AddBlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Backend\\Controllers\\AddBlog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\Auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,14 +84,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\registrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\registrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\models\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -66,67 +109,207 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20240701105052_FixUserFK.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701105052_FixUserFK.cs",
+              "RelativeDocumentMoniker": "Backend\\Migrations\\20240701105052_FixUserFK.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701105052_FixUserFK.cs",
+              "RelativeToolTip": "Backend\\Migrations\\20240701105052_FixUserFK.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwCUAAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T10:50:52.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20240701101836_UserBlogForeignKey.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701101836_UserBlogForeignKey.cs",
+              "RelativeDocumentMoniker": "Backend\\Migrations\\20240701101836_UserBlogForeignKey.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701101836_UserBlogForeignKey.cs",
+              "RelativeToolTip": "Backend\\Migrations\\20240701101836_UserBlogForeignKey.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T10:18:36.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20240701102909_Test.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701102909_Test.cs",
+              "RelativeDocumentMoniker": "Backend\\Migrations\\20240701102909_Test.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240701102909_Test.cs",
+              "RelativeToolTip": "Backend\\Migrations\\20240701102909_Test.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T10:29:09.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\BlogController.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\BlogController.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAArwFMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T05:02:47.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dbo.Blog [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Blog.sql",
+              "ToolTip": "dbo.Blog [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-01T05:36:01.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Registration.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\Registration.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
+              "RelativeToolTip": "Backend\\Models\\Registration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T10:32:37.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdBlogs.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AdBlogs.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\AdBlogs.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AdBlogs.cs",
+              "RelativeToolTip": "Backend\\Models\\AdBlogs.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAWwBUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T10:32:58.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
+              "RelativeDocumentMoniker": "Backend\\Program.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
+              "RelativeToolTip": "Backend\\Program.cs",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAYwIAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T08:50:10.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Backend\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAcwE8AAAANAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAuwB4AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-27T12:46:40.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Auth.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\Auth.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\Auth.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\Auth.cs",
-              "RelativeToolTip": "Backend\\Controllers\\Auth.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T10:01:50.607Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\appsettings.json",
-              "RelativeDocumentMoniker": "Backend\\appsettings.json",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\appsettings.json",
-              "RelativeToolTip": "Backend\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-06-26T08:42:06.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\UsersController.cs",
               "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Backend\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAkwBwAAAAfAAAA",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAQwGsAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-25T08:45:56.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
-              "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
-              "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAiwC0AAAAAAAAA",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Backend\\Services\\AppDbContext.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\AppDbContext.cs",
+              "RelativeToolTip": "Backend\\Services\\AppDbContext.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAwwCAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T08:50:10.344Z"
+              "WhenOpened": "2024-06-25T09:50:59.498Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
+              "Title": "AddblogDTO.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AddblogDTO.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\AddblogDTO.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AddblogDTO.cs",
+              "RelativeToolTip": "Backend\\Models\\AddblogDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T04:43:03.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "loginDTO.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\loginDTO.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\loginDTO.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\loginDTO.cs",
+              "RelativeToolTip": "Backend\\Models\\loginDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T05:21:22.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "getBlogDto.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\getBlogDto.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\getBlogDto.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\getBlogDto.cs",
+              "RelativeToolTip": "Backend\\Models\\getBlogDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T06:38:39.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Backend.csproj",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Backend.csproj",
+              "RelativeDocumentMoniker": "Backend\\Backend.csproj",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Backend.csproj",
+              "RelativeToolTip": "Backend\\Backend.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-01T05:10:45.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AddBlog.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AddBlog.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\AddBlog.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AddBlog.cs",
+              "RelativeToolTip": "Backend\\Controllers\\AddBlog.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-29T10:02:53.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "Backend\\appsettings.Development.json",
@@ -138,19 +321,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Backend\\Services\\AppDbContext.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\AppDbContext.cs",
-              "RelativeToolTip": "Backend\\Services\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T09:50:59.498Z"
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "Backend\\appsettings.json",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\appsettings.json",
+              "RelativeToolTip": "Backend\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-26T08:42:06.871Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 18,
+              "Title": "Auth.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\Auth.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\Auth.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\Auth.cs",
+              "RelativeToolTip": "Backend\\Controllers\\Auth.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T10:01:50.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\.gitignore",
+              "RelativeDocumentMoniker": "Backend\\.gitignore",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\.gitignore",
+              "RelativeToolTip": "Backend\\.gitignore",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-28T02:32:12.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "RegistrationDTO.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\RegistrationDTO.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\RegistrationDTO.cs",
@@ -162,31 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Registration.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
-              "RelativeDocumentMoniker": "Backend\\Models\\Registration.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
-              "RelativeToolTip": "Backend\\Models\\Registration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T10:32:37.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "loginDTO.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\loginDTO.cs",
-              "RelativeDocumentMoniker": "Backend\\Models\\loginDTO.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\loginDTO.cs",
-              "RelativeToolTip": "Backend\\Models\\loginDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T05:21:22.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 23,
               "Title": "20240625105219_AnotherMigration.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240625105219_AnotherMigration.cs",
               "RelativeDocumentMoniker": "Backend\\Migrations\\20240625105219_AnotherMigration.cs",
@@ -198,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "dbo.Users [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Users.sql",
               "ToolTip": "dbo.Users [Data]",
@@ -207,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 22,
               "Title": "20240625101606_SecondMigration.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240625101606_SecondMigration.cs",
               "RelativeDocumentMoniker": "Backend\\Migrations\\20240625101606_SecondMigration.cs",

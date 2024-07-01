@@ -3,7 +3,6 @@ using Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -17,16 +16,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-//For Jwt
+// For Jwt
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;sosol
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
@@ -37,18 +35,18 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 });
-//end for jwt
+// End for Jwt
+
 builder.Services.AddAuthorization();
 
-builder.Services.AddIdentityApiEndpoints<Registration>()
-    .AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
-
-builder.Services.AddDbContext<AppDbContext>(option =>
+builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    string connectionString = builder.Configuration.GetConnectionString("Conn")!;
-    option.UseSqlServer(connectionString);
-
+    string connectionString = builder.Configuration.GetConnectionString("Conn");
+    options.UseSqlServer(connectionString);
 });
 
 builder.Services.AddCors(options =>
@@ -57,17 +55,13 @@ builder.Services.AddCors(options =>
                       policy =>
                       {
                           policy.WithOrigins("http://localhost:5173")
-
-                              .AllowAnyHeader()
-                               .AllowAnyMethod()
-                              .AllowCredentials();
-
-
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials();
                       });
 });
 
 var app = builder.Build();
-app.MapIdentityApi<IdentityUser>();
 app.UseAuthentication();
 
 // Configure the HTTP request pipeline.
@@ -78,21 +72,21 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
 app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
-
-
-
 */
 
 
+
+
+
+
 using Backend.Models;
+
 using Backend.Services;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -130,9 +124,11 @@ namespace Backend
 
             });
 
-
-           
          
+
+
+
+
 
 
 
@@ -140,7 +136,7 @@ namespace Backend
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           
+
             builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
             builder.Services.AddAuthorizationBuilder();
 

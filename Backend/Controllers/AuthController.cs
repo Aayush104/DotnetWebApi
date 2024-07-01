@@ -9,6 +9,7 @@ using System.Linq;
 using System;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.Extensions.Logging;
 
 namespace Backend.Controllers
 {
@@ -18,74 +19,26 @@ namespace Backend.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly AppDbContext _context;
+        private readonly ILogger<AuthController> _logger;
 
-        public AuthController(IConfiguration configuration, AppDbContext context)
+        public AuthController(IConfiguration configuration, AppDbContext context, ILogger<AuthController> logger)
         {
             _configuration = configuration;
             _context = context;
+            _logger = logger;
         }
 
-         [HttpGet("checktoken")]
-        public async Task<IActionResult> CheckToken()
-        {
-            var token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+        [HttpGet("checkAccess")]
+        [Authorize]
+        public async Task<IActionResult> CheckAccess()
+       {
+            var user = HttpContext.User.FindFirst("Id");
+            var userId = user?.Value;
 
-            if (string.IsNullOrEmpty(token))
-            {
-                return Unauthorized("Unauthorized: No token provided");
-            }
+            // Log the user ID
+            _logger.LogInformation("User ID: {UserId}", userId);
 
-            Console.WriteLine(token);
-
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
-                var issuer = _configuration["Jwt:Issuer"];
-                var audience = _configuration["Jwt:Audience"];
-
-                if (string.IsNullOrWhiteSpace(issuer) || string.IsNullOrWhiteSpace(audience))
-                {
-                    throw new Exception("Issuer or Audience is not configured correctly.");
-                }
-
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = issuer,
-                    ValidAudience = audience,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ClockSkew = TimeSpan.FromMinutes(5)
-                }, out SecurityToken validatedToken);
-
-                var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = jwtToken.Claims.First(x => x.Type == "Id").Value;
-
-                var user = await _context.Users.FindAsync(userId);
-                if (user == null)
-                {
-                    return NotFound("User does not exist");
-                }
-
-                HttpContext.Items["User"] = user;
-
-                return Ok(user);
-            }
-            catch (SecurityTokenExpiredException)
-            {
-                return Unauthorized("Token has expired");
-            }
-            catch (SecurityTokenException ex)
-            {
-                return Unauthorized($"Token validation failed: {ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
+            return Ok(userId);
         }
     }
 }
