@@ -35,7 +35,7 @@ namespace Backend.Migrations
                 table: "Blog",
                 column: "UserId");
 
-            migrationBuilder.Sql("update Blog set UserId = (select top 1 Id from AspNetUsers);"); //not null huney condition ma yo halnu paryo if aagadi ko id null xa avney
+            migrationBuilder.Sql("update Blog set UserId = (select top 1 Id from AspNetUsers);"); //not null huney condition ma yo halnu paryo if aagadi ko row ma null xa avney
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Blog_AspNetUsers_UserId",

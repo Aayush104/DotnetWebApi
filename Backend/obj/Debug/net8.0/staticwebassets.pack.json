@@ -21,16 +21,20 @@
       "PackagePath": "staticwebassets\\Images\\20240701115910781.jpg"
     },
     {
-      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240701163757015.png",
-      "PackagePath": "staticwebassets\\Images\\20240701163757015.png"
-    },
-    {
       "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240701163946234.png",
       "PackagePath": "staticwebassets\\Images\\20240701163946234.png"
     },
     {
       "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240701164141116.png",
       "PackagePath": "staticwebassets\\Images\\20240701164141116.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240702113319893.png",
+      "PackagePath": "staticwebassets\\Images\\20240702113319893.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240702143727592.png",
+      "PackagePath": "staticwebassets\\Images\\20240702143727592.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props",

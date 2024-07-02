@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pWzjD7uB8Fyz05/xU3u+rIy/Puq64RqZQXUVu01KGZk=",
+  "Hash": "HW6TjbKIjKMbVyHQjEuE5ryabaP7Nz5IYGpmxhvByBk=",
   "Source": "Backend",
   "BasePath": "_content/Backend",
   "Mode": "Default",
@@ -112,25 +112,6 @@
       "OriginalItemSpec": "wwwroot\\Images\\20240701115910781.jpg"
     },
     {
-      "Identity": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240701163757015.png",
-      "SourceId": "Backend",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\",
-      "BasePath": "_content/Backend",
-      "RelativePath": "Images/20240701163757015.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\20240701163757015.png"
-    },
-    {
       "Identity": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240701163946234.png",
       "SourceId": "Backend",
       "SourceType": "Discovered",
@@ -167,6 +148,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\20240701164141116.png"
+    },
+    {
+      "Identity": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240702113319893.png",
+      "SourceId": "Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\",
+      "BasePath": "_content/Backend",
+      "RelativePath": "Images/20240702113319893.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\20240702113319893.png"
+    },
+    {
+      "Identity": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240702143727592.png",
+      "SourceId": "Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\",
+      "BasePath": "_content/Backend",
+      "RelativePath": "Images/20240702143727592.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\20240702143727592.png"
     }
   ]
 }
