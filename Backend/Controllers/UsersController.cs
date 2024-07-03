@@ -21,14 +21,16 @@ namespace Backend.Controllers
 
         private readonly UserManager<Registration> _userManager;
         private readonly SignInManager<Registration> _signInManager;
+       //private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _config;
 
 
-        public UsersController(AppDbContext context, UserManager<Registration> userManager, SignInManager<Registration> signInManager, IConfiguration config)
+        public UsersController(AppDbContext context, UserManager<Registration> userManager, SignInManager<Registration> signInManager,/*RoleManager<IdentityRole> roleManager,*/ IConfiguration config)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            //_roleManager = roleManager;
             _config = config;
         }
 
@@ -64,9 +66,10 @@ namespace Backend.Controllers
                     Email = registrationDTO.Email,
                 };
 
-                var result = await _userManager.CreateAsync(registration, registrationDTO.Password);
+               var result = await _userManager.CreateAsync(registration, registrationDTO.Password);
                 if (result.Succeeded)
                 {
+                   
                     return Ok("User registered successfully.");
                 }
 
@@ -97,13 +100,21 @@ namespace Backend.Controllers
                     return Unauthorized("Invalid login attempt.");
                 }
 
+
+                ///user bata role leko
+                var roles = await _userManager.GetRolesAsync(user);
+
+
                 var claims = new[]
                 {
 
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim("Id", user.Id.ToString()),
-            new Claim("Email", user.Email.ToString())
+            new Claim("Email", user.Email.ToString()),
+            new Claim("Role", string.Join(",", roles)), //claim ma role ni ad garya
+
         };
+                //for to generate a token
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -123,4 +134,8 @@ namespace Backend.Controllers
             return Unauthorized("Invalid login attempt.");
         }
     }
+
+
+  
+
 }

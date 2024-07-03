@@ -1,94 +1,5 @@
-/*using Backend.Models;
-using Backend.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
-var builder = WebApplication.CreateBuilder(args);
-var MyAllowSpecificOrigins = "MynameisAayush";
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// For Jwt
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-});
-// End for Jwt
-
-builder.Services.AddAuthorization();
-
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    string connectionString = builder.Configuration.GetConnectionString("Conn");
-    options.UseSqlServer(connectionString);
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:5173")
-                                .AllowAnyHeader()
-                                .AllowAnyMethod()
-                                .AllowCredentials();
-                      });
-});
-
-var app = builder.Build();
-app.UseAuthentication();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-app.UseCors(MyAllowSpecificOrigins);
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
-*/
-
-
-
-
-
-
 using Backend.Models;
-
 using Backend.Services;
-
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -98,7 +9,6 @@ using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
 namespace Backend
-
 {
     public class Program
     {
@@ -106,7 +16,7 @@ namespace Backend
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+            // Add services to the container.
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
@@ -115,38 +25,29 @@ namespace Backend
                                               .AllowAnyHeader());
             });
 
-
-
-            builder.Services.AddDbContext<AppDbContext>(option =>
+            builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 string connectionString = builder.Configuration.GetConnectionString("Conn")!;
-                option.UseSqlServer(connectionString);
-
+                options.UseSqlServer(connectionString);
             });
-
-         
-
-
-
-
-
-
-
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
 
-            builder.Services.AddAuthentication().AddBearerToken(IdentityConstants.BearerScheme);
-            builder.Services.AddAuthorizationBuilder();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                });
+                options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
 
             builder.Services.AddIdentity<Registration, IdentityRole>()
-     .AddEntityFrameworkStores<AppDbContext>()
-     .AddSignInManager()
-     .AddDefaultTokenProviders()
-     .AddRoles<IdentityRole>();
-
-
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 
             builder.Services.AddAuthentication(options =>
             {
@@ -158,7 +59,6 @@ namespace Backend
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
 
-                // Configure token validation parameters
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -170,59 +70,60 @@ namespace Backend
                     ClockSkew = TimeSpan.FromMinutes(5)
                 };
             });
-            builder.Services.AddSwaggerGen(option =>
-            {
-                option.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
-                });
-                option.OperationFilter<SecurityRequirementsOperationFilter>();
-            });
 
             var app = builder.Build();
+          
 
-            // Seed roles into the database
-            using (var scope = app.Services.CreateScope())
-            {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-                // Define roles
-                string[] roles = { "Admin", "Blogger" };
-
-                // Seed roles if they don't exist
-                foreach (var roleName in roles)
-                {
-                    if (!await roleManager.RoleExistsAsync(roleName))
-                    {
-                        await roleManager.CreateAsync(new IdentityRole(roleName));
-                    }
-                }
-            }
-
-            app.UseStaticFiles();
+            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
-
             app.UseCors("AllowAll");
-
-
-
-
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseAuthentication();
             app.UseAuthorization();
-
-
             app.MapControllers();
 
-            app.Run();
+            // Create roles and admin user if they do not exist
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Registration>>();
+                var roles = new[] { "Admin" };
+
+                foreach (var role in roles)
+                {
+                    if (!await roleManager.RoleExistsAsync(role))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(role));
+                    }
+                }
+
+                string username = "Admin";
+                string password = "Admin@1234";
+                string email = "Admin60@gmail.com";
+
+                if (await userManager.FindByNameAsync(username) == null)
+                {
+                    var user = new Registration
+                    {
+                        UserName = username,
+                        Email = email
+                    };
+
+                    var result = await userManager.CreateAsync(user, password);
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(user, "Admin");
+                    }
+                }
+            }
+
+            await app.RunAsync();
         }
     }
 }
