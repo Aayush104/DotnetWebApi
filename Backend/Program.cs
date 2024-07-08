@@ -45,6 +45,12 @@ namespace Backend
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
 
+            //for email configuration
+            builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("EmailSettings"));
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+            //identity
+
             builder.Services.AddIdentity<Registration, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();

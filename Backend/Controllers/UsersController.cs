@@ -21,18 +21,28 @@ namespace Backend.Controllers
 
         private readonly UserManager<Registration> _userManager;
         private readonly SignInManager<Registration> _signInManager;
-       //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailSender _emailSender;
         private readonly IConfiguration _config;
+        private readonly ILogger<BlogController> _logger;
 
-
-        public UsersController(AppDbContext context, UserManager<Registration> userManager, SignInManager<Registration> signInManager,/*RoleManager<IdentityRole> roleManager,*/ IConfiguration config)
+        public UsersController(AppDbContext context, UserManager<Registration> userManager, SignInManager<Registration> signInManager, IEmailSender emailSender, IConfiguration config, ILogger<BlogController> logger)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
-            //_roleManager = roleManager;
+            _emailSender = emailSender;
             _config = config;
+           _logger = logger;
         }
+
+
+        private static string GenerateOtp()
+        {
+            Random rnd = new Random();
+            int otp = rnd.Next(1000, 10000); // Generates a number between 1000 and 9999
+            return otp.ToString("D4"); // Converts the number to a string with 4 digits
+        }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Registration(RegistrationDTO registrationDTO)
@@ -57,6 +67,17 @@ namespace Backend.Controllers
                 return Conflict("User with the same email or username already exists.");
             }
 
+            string otp = GenerateOtp();
+
+            MailRequest mailRequest = new MailRequest
+            {
+                ToEmail = registrationDTO.Email,
+                Subject = "User Verification Code",
+                Body = $"Your OTP Code is {otp}"
+            };
+
+            await _emailSender.SendEmailAsync(mailRequest);
+           
             try
             {
                 // Create a new user registration object
@@ -64,7 +85,12 @@ namespace Backend.Controllers
                 {
                     UserName = registrationDTO.userName,
                     Email = registrationDTO.Email,
+                    Otp = otp,
+                    validity = "False"
+
                 };
+
+                _logger.LogInformation("While resgistring" + registration.Otp);
 
                var result = await _userManager.CreateAsync(registration, registrationDTO.Password);
                 if (result.Succeeded)
@@ -80,6 +106,36 @@ namespace Backend.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
             }
         }
+
+        //verifying otp
+        [HttpPost("Verify/{email}")]
+        public async Task<IActionResult> Verify(string email, VerifyDto verify)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var userData = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (userData == null)
+            {
+                return Unauthorized("User not found");
+            }
+
+            _logger.LogInformation("Database OTP: {Otp}", userData.Otp);
+            _logger.LogInformation("Form OTP: {Otp}", verify.Otp);
+
+            if (userData.Otp == verify.Otp)
+            {
+                userData.validity = "True";  // Assuming Validity is a string
+                _context.Users.Update(userData);
+                await _context.SaveChangesAsync();
+                return Ok(userData);
+            }
+
+            return BadRequest("OTP is incorrect");
+        }
+
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(loginDTO loginDto)
@@ -111,6 +167,7 @@ namespace Backend.Controllers
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim("Id", user.Id.ToString()),
             new Claim("Email", user.Email.ToString()),
+            new Claim("validity", user.validity.ToString()),
             new Claim("Role", string.Join(",", roles)), //claim ma role ni ad garya
 
         };
