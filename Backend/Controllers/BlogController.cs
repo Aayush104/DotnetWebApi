@@ -65,7 +65,12 @@ namespace Backend.Controllers
             return Ok("Blog created successfully");
         }
 
+
+
+
+
         [HttpGet("GetBlog")]
+        [AllowAnonymous]
         public IActionResult GetBlog()
         {
             var user = HttpContext.User.FindFirst("Id");
@@ -215,9 +220,34 @@ namespace Backend.Controllers
             return Ok("deleted");
 
         }
+
+
+
+
+        [HttpPost("Search/{query}")]
+        [AllowAnonymous]
+
+        public IActionResult Search(string query)
+        {
+
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return BadRequest("Field is empty");
+            }
+
+
+            var Data = _dbContext.Blog.Where(b => b.Title.Contains(query)).ToList();
+
+            if (!Data.Any())
+            {
+                return BadRequest("No resuolt found");
+            }
+
+            return Ok(Data);
+
+        }
     }
 
 
-   
 
 }

@@ -3,8 +3,15 @@
   "WorkspaceRootPath": "D:\\webAPi crud with react\\Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Blog.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
@@ -54,10 +61,6 @@
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\models\\adblogs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|d:\\webapi crud with react\\backend\\backend\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9553186-F2BF-478A-A017-B4E984539917}|Backend\\Backend.csproj|solutionrelative:backend\\services\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -91,61 +94,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BlogController.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\BlogController.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\BlogController.cs",
-              "ViewState": "AQIAAJUAAAAAAAAAAAA9wJ0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T06:32:50.529Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Registration.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
-              "RelativeDocumentMoniker": "Backend\\Models\\Registration.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
-              "RelativeToolTip": "Backend\\Models\\Registration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T12:34:33.336Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAAAwGcAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T09:53:29.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EmailController.cs",
-              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\EmailController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\EmailController.cs",
-              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\EmailController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\EmailController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwDIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T03:29:16.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "MailRequest.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\MailRequest.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\MailRequest.cs",
@@ -157,17 +110,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "dbo.AspNetUsers [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.AspNetUsers.sql",
               "ToolTip": "dbo.AspNetUsers [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-07-03T05:43:00.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-03T05:43:00.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "RegistrationDTO.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\RegistrationDTO.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\RegistrationDTO.cs",
@@ -179,19 +131,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
               "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Program.cs",
               "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAwC4AAAAAAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHMAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T09:45:00.795Z"
+              "WhenOpened": "2024-07-02T09:45:00.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Registration.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
+              "RelativeDocumentMoniker": "Backend\\Models\\Registration.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\Registration.cs",
+              "RelativeToolTip": "Backend\\Models\\Registration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T12:34:33.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\BlogController.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\BlogController.cs",
+              "ViewState": "AQIAANwAAAAAAAAAAAAwwOUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T06:32:50.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmailController.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\EmailController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\EmailController.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\EmailController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\EmailController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwDIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-06T03:29:16.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.Blog [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.Blog.sql",
+              "ToolTip": "dbo.Blog [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-07-09T07:05:30.145Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAAwGcAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T09:53:29.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "20240706035149_forEmail.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240706035149_forEmail.cs",
               "RelativeDocumentMoniker": "Backend\\Migrations\\20240706035149_forEmail.cs",
@@ -203,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "EmailSender.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\EmailSender.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\EmailSender.cs",
@@ -215,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "loginDTO.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\loginDTO.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\loginDTO.cs",
@@ -227,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "EmailSetting.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\EmailSetting.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\EmailSetting.cs",
@@ -239,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "IEmailSender.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\IEmailSender.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\IEmailSender.cs",
@@ -251,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "dbo.AspNetRoles [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/./WEBAPI1/True/SqlTable/dbo.AspNetRoles.sql",
               "ToolTip": "dbo.AspNetRoles [Data]",
@@ -260,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Services\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\AppDbContext.cs",
@@ -272,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "AdBlogs.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AdBlogs.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\AdBlogs.cs",
@@ -284,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\AuthController.cs",
@@ -296,7 +307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ThrowHelper.cs",
               "DocumentMoniker": "C:\\Users\\acer\\AppData\\Local\\Temp\\.vsdbgsrc\\e9d507d91c729423d2219f71dbb4f35c9a66ad10c370fa4a4407d654fa39388c\\ThrowHelper.cs",
               "ToolTip": "C:\\Users\\acer\\AppData\\Local\\Temp\\.vsdbgsrc\\e9d507d91c729423d2219f71dbb4f35c9a66ad10c370fa4a4407d654fa39388c\\ThrowHelper.cs [Read Only]",
@@ -307,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "20240703054552_RoleAdded.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Migrations\\20240703054552_RoleAdded.cs",
               "RelativeDocumentMoniker": "Backend\\Migrations\\20240703054552_RoleAdded.cs",
@@ -319,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "getBlogDto.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\getBlogDto.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\getBlogDto.cs",
@@ -331,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "AddblogDTO.cs",
               "DocumentMoniker": "D:\\webAPi crud with react\\Backend\\Backend\\Models\\AddblogDTO.cs",
               "RelativeDocumentMoniker": "Backend\\Models\\AddblogDTO.cs",
