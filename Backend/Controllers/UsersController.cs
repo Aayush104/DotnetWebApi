@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using static System.Net.WebRequestMethods;
 
 namespace Backend.Controllers
 {
@@ -47,28 +49,42 @@ namespace Backend.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Registration(RegistrationDTO registrationDTO)
         {
-            /*if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-*/
             // Check if a user with the same email or username already exists
-            var existingUser = await _userManager.FindByEmailAsync(registrationDTO.Email)
-                              ?? await _userManager.FindByNameAsync(registrationDTO.userName);
+            var existingUserEmail = await _userManager.FindByEmailAsync(registrationDTO.Email);
+            var existingUserUsername = await _userManager.FindByNameAsync(registrationDTO.userName);
 
-            if (existingUser != null)
-            {
-                return Conflict("User with the same email or username already exists.");
-            }
-
-
-            if (existingUser != null)
-            {
-                return Conflict("User with the same email or username already exists.");
-            }
-
+            // Generate OTP
             string otp = GenerateOtp();
 
+
+            if (existingUserUsername != null && existingUserUsername.validity == "True")
+            {
+                return Conflict("User with that name exists");
+            }
+            else if (existingUserEmail != null && existingUserEmail.validity == "False")
+            {
+                // Update existing user's username and email and set the new OTP
+                existingUserEmail.UserName = registrationDTO.userName;
+                existingUserEmail.Email = registrationDTO.Email;
+                existingUserEmail.Otp = otp;
+
+                var updateResult = await _userManager.UpdateAsync(existingUserEmail);
+
+               
+                if (!updateResult.Succeeded)
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, "Failed to update existing user.");
+                }
+
+
+                
+            }
+            else if (existingUserEmail != null && existingUserEmail.validity == "True")
+            {
+                return Conflict("User with that email exists");
+            }
+
+            // Send OTP via email
             MailRequest mailRequest = new MailRequest
             {
                 ToEmail = registrationDTO.Email,
@@ -77,35 +93,34 @@ namespace Backend.Controllers
             };
 
             await _emailSender.SendEmailAsync(mailRequest);
-           
-            try
+
+
+
+
+            if(existingUserEmail == null)
             {
-                // Create a new user registration object
-                var registration = new Registration()
+                var newRegistration = new Registration()
                 {
                     UserName = registrationDTO.userName,
                     Email = registrationDTO.Email,
                     Otp = otp,
                     validity = "False"
-
                 };
 
-                _logger.LogInformation("While resgistring" + registration.Otp);
-
-               var result = await _userManager.CreateAsync(registration, registrationDTO.Password);
-                if (result.Succeeded)
+                var createResult = await _userManager.CreateAsync(newRegistration, registrationDTO.Password);
+                if (!createResult.Succeeded)
                 {
-                   
-                    return Ok("User registered successfully.");
+                    return BadRequest(createResult.Errors);
                 }
 
-                return BadRequest(result.Errors);
+               
+
             }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, $"Error: {ex.Message}");
-            }
+
+
+            return Ok("User registered successfully.");
         }
+
 
         //verifying otp
         [HttpPost("Verify/{email}")]
