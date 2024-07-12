@@ -8,7 +8,7 @@ namespace Backend.Models
     public class Registration : IdentityUser
     {
         public DateTime CreatedOn{ get; set; }  = DateTime.UtcNow;
-        public string Otp { get; set; } 
+        public string? Otp { get; set; } 
 
         public string validity { get; set; }
         

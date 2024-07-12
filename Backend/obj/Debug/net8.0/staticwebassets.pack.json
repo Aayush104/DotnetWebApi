@@ -45,6 +45,34 @@
       "PackagePath": "staticwebassets\\Images\\20240703121417354.jpeg"
     },
     {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130502352.png",
+      "PackagePath": "staticwebassets\\Images\\20240709130502352.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130620910.jpeg",
+      "PackagePath": "staticwebassets\\Images\\20240709130620910.jpeg"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130634771.png",
+      "PackagePath": "staticwebassets\\Images\\20240709130634771.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130650790.png",
+      "PackagePath": "staticwebassets\\Images\\20240709130650790.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130718946.png",
+      "PackagePath": "staticwebassets\\Images\\20240709130718946.png"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130800329.jpeg",
+      "PackagePath": "staticwebassets\\Images\\20240709130800329.jpeg"
+    },
+    {
+      "Id": "D:\\webAPi crud with react\\Backend\\Backend\\wwwroot\\Images\\20240709130825193.jpg",
+      "PackagePath": "staticwebassets\\Images\\20240709130825193.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -155,3 +155,12 @@ D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Backend.staticwebasse
 D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\MailKit.dll
 D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\MimeKit.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Google.Apis.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Google.Apis.Auth.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Google.Apis.Bigquery.v2.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Google.Apis.Core.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Google.Authenticator.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\QRCoder.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\System.Management.dll
+D:\webAPi crud with react\Backend\Backend\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll

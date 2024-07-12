@@ -1,12 +1,17 @@
 using Backend.Models;
 using Backend.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Backend
 {
@@ -20,9 +25,10 @@ namespace Backend
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
-                    corsBuilder => corsBuilder.AllowAnyOrigin()
-                                              .AllowAnyMethod()
-                                              .AllowAnyHeader());
+                    builder => builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
 
             builder.Services.AddDbContext<AppDbContext>(options =>
@@ -36,30 +42,55 @@ namespace Backend
 
             builder.Services.AddSwaggerGen(options =>
             {
-                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
+                    Description = "Please enter JWT with Bearer into field",
                     Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey,
+                    Type = SecuritySchemeType.ApiKey
                 });
-                options.OperationFilter<SecurityRequirementsOperationFilter>();
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
             });
 
-            //for email configuration
+            // For email configuration
             builder.Services.Configure<EmailSetting>(builder.Configuration.GetSection("EmailSettings"));
             builder.Services.AddTransient<IEmailSender, EmailSender>();
 
-            //identity
-
+            // Identity
             builder.Services.AddIdentity<Registration, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            // Combine Authentication Schemes
             builder.Services.AddAuthentication(options =>
             {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                //options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                
             })
+            .AddCookie()
+            //.AddGoogle(options =>
+            //{
+            //    options.ClientId = builder.Configuration["GoogleKeys:ClientId"];
+            //    options.ClientSecret = builder.Configuration["GoogleKeys:ClientSecret"];
+            //    options.CallbackPath = "/external-login-callback";
+
+            //})
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -68,23 +99,25 @@ namespace Backend
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
                     ValidateIssuer = true,
                     ValidIssuer = builder.Configuration["Jwt:Issuer"],
                     ValidateAudience = true,
                     ValidAudience = builder.Configuration["Jwt:Audience"],
-                    ClockSkew = TimeSpan.FromMinutes(5)
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
             var app = builder.Build();
-          
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API V1");
+                });
             }
 
             app.UseCors("AllowAll");
@@ -111,7 +144,7 @@ namespace Backend
 
                 string username = "Admin";
                 string password = "Admin@1234";
-                string email = "Admin60@gmail.com";
+                string email = "admin@example.com";
 
                 if (await userManager.FindByNameAsync(username) == null)
                 {

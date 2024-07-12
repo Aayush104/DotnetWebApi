@@ -1,5 +1,8 @@
 ﻿using Backend.Models;
 using Backend.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -34,7 +37,7 @@ namespace Backend.Controllers
             _signInManager = signInManager;
             _emailSender = emailSender;
             _config = config;
-           _logger = logger;
+            _logger = logger;
         }
 
 
@@ -70,14 +73,14 @@ namespace Backend.Controllers
 
                 var updateResult = await _userManager.UpdateAsync(existingUserEmail);
 
-               
+
                 if (!updateResult.Succeeded)
                 {
                     return StatusCode(StatusCodes.Status500InternalServerError, "Failed to update existing user.");
                 }
 
 
-                
+
             }
             else if (existingUserEmail != null && existingUserEmail.validity == "True")
             {
@@ -97,7 +100,7 @@ namespace Backend.Controllers
 
 
 
-            if(existingUserEmail == null)
+            if (existingUserEmail == null)
             {
                 var newRegistration = new Registration()
                 {
@@ -113,7 +116,7 @@ namespace Backend.Controllers
                     return BadRequest(createResult.Errors);
                 }
 
-               
+
 
             }
 
@@ -205,9 +208,71 @@ namespace Backend.Controllers
 
             return Unauthorized("Invalid login attempt.");
         }
+
+        [HttpPost("signin-google")]
+        public async Task<IActionResult> GoogleLogin(GoogleLoginDto googleLoginDto)
+        {
+
+            var existingEmail = await _userManager.FindByEmailAsync(googleLoginDto.Email);
+            var existingName = await _userManager.FindByNameAsync(googleLoginDto.userName);
+
+
+            if (existingEmail == null && existingName == null)
+            {
+
+                var Registration = new Registration
+                {
+                    UserName = googleLoginDto.userName,
+                    Email = googleLoginDto.Email,
+                    EmailConfirmed = googleLoginDto.EmailConfirmed,
+                    validity = "True",
+                    Otp = GenerateOtp()
+
+                };
+
+               var gg = await _userManager.CreateAsync(Registration);
+
+               
+            }
+         
+
+            var user = await _userManager.FindByEmailAsync(googleLoginDto.Email);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // Define claims
+            var claims = new[]
+            {
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim("Id", user.Id.ToString()),
+        new Claim("Email", user.Email),
+        new Claim("Validity", user.validity.ToString()),
+        new Claim("Role", string.Join(",", roles))
+    };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _config["Jwt:Issuer"],
+                audience: _config["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(60),
+                signingCredentials: creds);
+
+            string tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
+
+            // Return the token and user information
+            return Ok(new { token = tokenValue, user = new { user.UserName, user.Email } });
+
+
+
+
+        }
+
+
+
     }
 
 
-  
 
 }
