@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Text;
 using System.Threading.Tasks;
+using Backend.Security;
 
 namespace Backend
 {
@@ -38,6 +39,7 @@ namespace Backend
             });
 
             builder.Services.AddControllers();
+            builder.Services.AddScoped<DataSecurityProvider>();
             builder.Services.AddEndpointsApiExplorer();
 
             builder.Services.AddSwaggerGen(options =>

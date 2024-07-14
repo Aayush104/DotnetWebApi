@@ -13,5 +13,8 @@ namespace Backend.Models
 
         public string Image { get; set; }
         public string loginId {get; set;}
+
+        public string encId { get; set;}    
+
     }
 }

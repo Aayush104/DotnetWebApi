@@ -1,8 +1,10 @@
 ﻿using Backend.Models;
+using Backend.Security;
 using Backend.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,7 @@ namespace Backend.Controllers
         private readonly IConfiguration _config;
         private readonly ILogger<BlogController> _logger;
 
+
         public UsersController(AppDbContext context, UserManager<Registration> userManager, SignInManager<Registration> signInManager, IEmailSender emailSender, IConfiguration config, ILogger<BlogController> logger)
         {
             _context = context;
@@ -38,6 +41,7 @@ namespace Backend.Controllers
             _emailSender = emailSender;
             _config = config;
             _logger = logger;
+          
         }
 
 

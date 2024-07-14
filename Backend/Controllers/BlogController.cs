@@ -1,6 +1,8 @@
 ﻿using Backend.Models;
+using Backend.Security;
 using Backend.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +22,14 @@ namespace Backend.Controllers
         private readonly AppDbContext _dbContext;
         private readonly IWebHostEnvironment _environment;
         private readonly ILogger<BlogController> _logger;
+        private readonly IDataProtector _protector;
 
-        public BlogController(AppDbContext dbContext, IWebHostEnvironment environment, ILogger<BlogController> logger)
+        public BlogController(AppDbContext dbContext, IWebHostEnvironment environment, ILogger<BlogController> logger, DataSecurityProvider security, IDataProtectionProvider provider)
         {
             _dbContext = dbContext;
             _environment = environment;
             _logger = logger;
+            _protector = provider.CreateProtector(security.Datakey);
         }
 
         [HttpPost("AddBlog")]
@@ -94,6 +98,7 @@ namespace Backend.Controllers
                 Title = blog.Title,
                 Description = blog.Description,
                 Image = blog.Image,
+                encId = _protector.Protect(blog.Id.ToString())
             }).ToList();
 
             return Ok(getBlogs);
@@ -101,9 +106,12 @@ namespace Backend.Controllers
 
         [HttpGet("Description/{id}")]
         [AllowAnonymous]
-        public IActionResult Description(int id)
+        public IActionResult Description(string id)
         {
-            var blog = _dbContext.Blog.FirstOrDefault(b => b.Id == id);
+
+            int blogId = Convert.ToInt32(_protector.Unprotect(id));
+
+            var blog = _dbContext.Blog.FirstOrDefault(b => b.Id == blogId);
 
             if (blog == null)
             {
@@ -119,7 +127,9 @@ namespace Backend.Controllers
                 Title = blog.Title,
                 Description = blog.Description,
                 Image = blog.Image,
-                loginId = blog.UserId
+                loginId = blog.UserId,
+                encId = _protector.Protect(blog.Id.ToString())
+
             };
 
             return Ok(blogDto);
@@ -145,6 +155,8 @@ namespace Backend.Controllers
                 Title = blog.Title,
                 Description = blog.Description,
                 Image = blog.Image,
+                encId = _protector.Protect(blog.Id.ToString())
+
             }).ToList();
 
             return Ok(getBlogs);
@@ -152,9 +164,12 @@ namespace Backend.Controllers
 
         [HttpPost("Edit/{id}")]
         [AllowAnonymous]
-        public IActionResult Edit(int id, [FromForm] AddblogDTO addBlogDto)
+        public IActionResult Edit(string id, [FromForm] AddblogDTO addBlogDto)
+
         {
-            var blog = _dbContext.Blog.Find(id);
+
+            int blogId = Convert.ToInt32(_protector.Unprotect(id));
+            var blog = _dbContext.Blog.Find(blogId);
 
             if (blog == null)
             {
@@ -197,14 +212,16 @@ namespace Backend.Controllers
         [HttpDelete("Delete/{id}")]
         [AllowAnonymous]
 
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
-            if (id == 0)
+            int blogId = Convert.ToInt32(_protector.Unprotect(id));
+
+            if (blogId == 0)
             {
                 return BadRequest("No Id");
             }
 
-            var blog = _dbContext.Blog.Find(id);
+            var blog = _dbContext.Blog.Find(blogId);
 
 
            
