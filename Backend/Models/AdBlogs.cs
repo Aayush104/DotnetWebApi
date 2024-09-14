@@ -8,20 +8,23 @@ namespace Backend.Models
         public int Id { get; set; }
 
         [Required]
-        public String Title { get; set; } 
+        public string Title { get; set; } 
 
         [Required]
-        public String Description { get; set; }
+        public string Description { get; set; }
 
         [Required]
-        public String Image { get; set; }
+        public string Image { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
-        // [ForeignKey("User")]
+
+        public string BlogStatus { get; set; }
+        public decimal Amount { get; set; }
         public string UserId { get; set; }
         public Registration User { get; set; }
+        public ICollection<Payment> BlogSubscriptions { get; set; }
 
 
 
-     
+
     }
 }

@@ -83,16 +83,9 @@ namespace Backend
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 //options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                
+
             })
             .AddCookie()
-            //.AddGoogle(options =>
-            //{
-            //    options.ClientId = builder.Configuration["GoogleKeys:ClientId"];
-            //    options.ClientSecret = builder.Configuration["GoogleKeys:ClientSecret"];
-            //    options.CallbackPath = "/external-login-callback";
-
-            //})
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -128,41 +121,6 @@ namespace Backend
             app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
-
-            // Create roles and admin user if they do not exist
-            using (var scope = app.Services.CreateScope())
-            {
-                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<Registration>>();
-                var roles = new[] { "Admin" };
-
-                foreach (var role in roles)
-                {
-                    if (!await roleManager.RoleExistsAsync(role))
-                    {
-                        await roleManager.CreateAsync(new IdentityRole(role));
-                    }
-                }
-
-                string username = "Admin";
-                string password = "Admin@1234";
-                string email = "admin@example.com";
-
-                if (await userManager.FindByNameAsync(username) == null)
-                {
-                    var user = new Registration
-                    {
-                        UserName = username,
-                        Email = email
-                    };
-
-                    var result = await userManager.CreateAsync(user, password);
-                    if (result.Succeeded)
-                    {
-                        await userManager.AddToRoleAsync(user, "Admin");
-                    }
-                }
-            }
 
             await app.RunAsync();
         }

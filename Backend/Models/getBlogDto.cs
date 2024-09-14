@@ -10,7 +10,8 @@ namespace Backend.Models
 
         public string Description { get; set; }
 
-
+        public string BlogStatus { get; set; }  
+        public decimal Amount { get; set; }
         public string Image { get; set; }
         public string loginId {get; set;}
 

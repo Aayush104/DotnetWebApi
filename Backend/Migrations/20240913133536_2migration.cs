@@ -5,25 +5,25 @@
 namespace Backend.Migrations
 {
     /// <inheritdoc />
-    public partial class forEmail : Migration
+    public partial class _2migration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Otp",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
+            migrationBuilder.AddColumn<decimal>(
+                name: "Amount",
+                table: "Blog",
+                type: "decimal(18,2)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: 0m);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Otp",
-                table: "AspNetUsers");
+                name: "Amount",
+                table: "Blog");
         }
     }
 }

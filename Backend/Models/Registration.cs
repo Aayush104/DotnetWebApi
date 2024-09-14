@@ -13,6 +13,7 @@ namespace Backend.Models
         public string validity { get; set; }
         
         public ICollection<AdBlogs> Blogs { get; set; }
+        public ICollection<Payment> BlogSubscriptions { get; set; }
 
 
        

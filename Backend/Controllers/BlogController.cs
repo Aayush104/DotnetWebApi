@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 
 namespace Backend.Controllers
 {
@@ -60,6 +61,8 @@ namespace Backend.Controllers
                 Title = addBlogDto.Title,
                 Description = addBlogDto.Description,
                 Image = imageUrl,
+                BlogStatus = addBlogDto.BlogStatus,
+                Amount = addBlogDto.Amount,
                 UserId = userId
             };
 
@@ -77,14 +80,17 @@ namespace Backend.Controllers
         [AllowAnonymous]
         public IActionResult GetBlog()
         {
+            // Find the user
             var user = HttpContext.User.FindFirst("Id");
-            var userId = user?.Value;
-
             if (user == null)
             {
                 return NotFound("No User Found");
             }
 
+            // Get the user's ID
+            var userId = user.Value;
+
+            // Retrieve blogs that do not belong to the logged-in user
             var blogs = _dbContext.Blog.Where(blog => blog.UserId != userId).ToList();
 
             if (blogs == null || blogs.Count == 0)
@@ -92,17 +98,34 @@ namespace Backend.Controllers
                 return NotFound("No blogs found");
             }
 
-            var getBlogs = blogs.Select(blog => new getBlogDto
+            // Check blog subscriptions for each blog
+            var getBlogs = blogs.Select(blog =>
             {
-                Id = blog.Id,
-                Title = blog.Title,
-                Description = blog.Description,
-                Image = blog.Image,
-                encId = _protector.Protect(blog.Id.ToString())
-            }).ToList();
+                // Check if the current user is subscribed to the blog
+                var subscribedBlog = _dbContext.BlogSubscriptions
+                    .FirstOrDefault(x => x.BlogId == blog.Id && x.UserId == userId);
+
+                // If not subscribed, return the blog details
+                if (subscribedBlog == null)
+                {
+                    return new getBlogDto
+                    {
+                        Id = blog.Id,
+                        Title = blog.Title,
+                        Description = blog.Description,
+                        Image = blog.Image,
+                        BlogStatus = blog.BlogStatus,
+                        Amount = blog.Amount,
+                        encId = _protector.Protect(blog.Id.ToString())
+                    };
+                }
+
+                return null; // Skip subscribed blogs
+            }).Where(blog => blog != null).ToList(); // Filter out null entries
 
             return Ok(getBlogs);
         }
+
 
         [HttpGet("Description/{id}")]
         [AllowAnonymous]
@@ -155,6 +178,8 @@ namespace Backend.Controllers
                 Title = blog.Title,
                 Description = blog.Description,
                 Image = blog.Image,
+                BlogStatus = blog.BlogStatus,
+                Amount = blog.Amount,   
                 encId = _protector.Protect(blog.Id.ToString())
 
             }).ToList();
@@ -263,6 +288,92 @@ namespace Backend.Controllers
             return Ok(Data);
 
         }
+
+        [HttpPost("success")]
+        public IActionResult Success([FromQuery] string q, [FromQuery] string oid, [FromQuery] string amt, [FromQuery] string refId)
+        {
+            var user = HttpContext.User.FindFirst("Id");
+            var userId = user?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User not found");
+            }
+
+            int blogId;
+            try
+            {
+                blogId = Convert.ToInt32(_protector.Unprotect(oid));
+            }
+            catch (Exception)
+            {
+                return BadRequest("Invalid blog ID");
+            }
+
+            var blog = _dbContext.Blog.FirstOrDefault(x => x.Id == blogId);
+            if (blog == null)
+            {
+                return BadRequest("Blog not found");
+            }
+
+            // Check for existing subscription
+            var existingSubscription = _dbContext.BlogSubscriptions
+                .FirstOrDefault(x => x.BlogId == blog.Id && x.UserId == userId);
+
+            if (existingSubscription != null)
+            {
+                return Ok("Blog has already been subscribed");
+            }
+
+            // Add new subscription
+            var newSubscription = new Payment
+            {
+                Amount = Convert.ToDecimal(amt),
+                UserId = userId,
+                BlogId = blog.Id
+            };
+
+            _dbContext.BlogSubscriptions.Add(newSubscription);
+            _dbContext.SaveChanges();
+
+            return Ok(new { message = $"Payment Successful. Rs. {amt}" });
+        }
+
+
+        [HttpPost("failure")]
+        public IActionResult Failure()
+        {
+            return BadRequest("Payment failed.");
+        }
+
+
+
+        [HttpGet("SubscribedBlog")]
+        [AllowAnonymous]
+
+
+        public IActionResult SubscribedBlog()
+        {
+            var user = HttpContext.User.FindFirst("Id");
+            var userid = user?.Value;
+
+            var blogs = _dbContext.Blog.Where(b => _dbContext.BlogSubscriptions.Any(x => x.BlogId ==  b.Id && x.UserId == userid)).Select(blog => new getBlogDto
+
+            {
+                Id = blog.Id,
+                Title = blog.Title,
+                Description = blog.Description,
+                Image = blog.Image,
+                BlogStatus = blog.BlogStatus,
+                Amount = blog.Amount,
+                encId = _protector.Protect(blog.Id.ToString())
+            }).ToList();
+
+            return Ok(blogs);
+            
+        }
+
+
     }
 
 
